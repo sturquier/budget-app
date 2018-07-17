@@ -1,11 +1,22 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import moment from 'moment'
 
-const ExpensesListItem = () => {
+const ExpensesListItem = (props) => {
+
+	const {expense} = props
 
 	return (
-		<div>
-			<h4>Expenses List Item</h4>
-		</div>
+		<tr>
+			<td>{expense.title}</td>
+			<td>{moment(expense.createdAt).format("MMMM Do, YYYY")}</td>
+			<td>${expense.amount}</td>
+			<td>
+				<Link to={`/expenses/${expense.id}`}>
+					<i className="fas fa-edit"></i>
+				</Link>
+			</td>
+		</tr>
 	)
 }
 

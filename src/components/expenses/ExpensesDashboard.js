@@ -1,10 +1,13 @@
 import React from 'react'
+import Header from '../layout/Header' 
+import ExpensesList from '../../containers/expenses/ExpensesList'
 
 const ExpensesDashboard = () => {
 
 	return (
 		<div>
-			<h4>Expenses Dashboard</h4>
+			<Header/>
+			<ExpensesList/>
 		</div>
 	)
 }

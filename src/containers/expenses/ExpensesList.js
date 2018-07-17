@@ -1,12 +1,53 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { getExpenses } from '../../actions/expenses'
+import ExpensesListItem from '../../components/expenses/ExpensesListItem'
 
-const ExpensesList = () => {
+class ExpensesList extends Component {
 
-	return (
-		<div>
-			<h4>Expenses List</h4>
-		</div>
-	)
+	componentWillMount() {
+		this.props.getExpenses()
+	}
+
+	renderExpenses() {
+		const {expenses} = this.props
+
+		return expenses.map((expense) => {
+			return <ExpensesListItem key={expense.id} expense={expense}/>
+		})
+	}
+
+	render() {
+		return (
+			<div>
+				<h4>Expenses List</h4>
+				<table className="table table-striped">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Created At</th>
+							<th>Amount</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.renderExpenses()}
+					</tbody>
+				</table>
+			</div>
+		)
+	}
 }
 
-export default ExpensesList
+const mapStateToProps = (state) => {
+	return {
+		expenses: state.expenses
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({getExpenses}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesList)

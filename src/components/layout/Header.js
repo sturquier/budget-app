@@ -1,11 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import * as routes from '../../constants/Routes'
 
 const Header = () => {
 
 	return (
-		<div>
-			<h4>Header</h4>
-		</div>
+		<nav className="navbar navbar-expand-lg navbar-light bg-light">
+			<Link className="navbar-brand" to={routes.EXPENSES_DASHBOARD_PAGE}>Budget App</Link>
+		</nav>
 	)
 }
 

@@ -7,6 +7,9 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
 
+import 'react-dates/initialize'
+import 'react-dates/lib/css/_datepicker.css'
+
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
 ReactDOM.render(

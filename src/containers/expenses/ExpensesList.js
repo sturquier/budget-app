@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getExpenses } from '../../actions/expenses'
 import ExpensesListItem from '../../components/expenses/ExpensesListItem'
+import { getVisibleExpenses } from '../../helpers/expenses'
 
 class ExpensesList extends Component {
 
@@ -42,7 +43,7 @@ class ExpensesList extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		expenses: state.expenses
+		expenses: getVisibleExpenses(state.expenses, state.filters)
 	}
 }
 

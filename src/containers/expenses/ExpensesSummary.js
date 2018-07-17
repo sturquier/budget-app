@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getTotalExpenses } from '../../helpers/expenses'
+import { getVisibleExpenses, getTotalExpenses } from '../../helpers/expenses'
 import { Link } from 'react-router-dom'
 
 class ExpensesSummary extends Component {
@@ -18,7 +18,7 @@ class ExpensesSummary extends Component {
 }
 
 const mapStateToProps = (state) => {
-	const visibleExpenses = state.expenses
+	const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 
 	return {
 		expensesCount: visibleExpenses.length,

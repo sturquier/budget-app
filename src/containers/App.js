@@ -3,6 +3,8 @@ import { Router, Switch, Route } from 'react-router-dom'
 
 import * as routes from '../constants/Routes'
 import createBrowserHistory from '../helpers/history'
+import withAuthentication from '../components/session/withAuthentication'
+
 import Home from '../components/Home'
 import ExpensesDashboard from '../components/expenses/ExpensesDashboard'
 import AddExpense from './expenses/AddExpense'
@@ -32,4 +34,4 @@ class App extends Component {
   	}
 }
 
-export default App
+export default withAuthentication(App)

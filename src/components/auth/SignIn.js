@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { Link } from 'react-router-dom'
 
 import { doSignInWithEmailAndPassword } from '../../actions/auth'
-import { EXPENSES_DASHBOARD_PAGE } from '../../constants/Routes'
+import { EXPENSES_DASHBOARD_PAGE, PASSWORD_FORGET_PAGE } from '../../constants/Routes'
 
 const validate = values => {
 	const errors = {}
@@ -49,6 +50,8 @@ class SignIn extends Component {
 					<Field className="form-control" name="password" component={renderText} type="password" label="Password"/>
 					<button className="btn btn-success" disabled={submitting}>Sign In</button>
 				</form>
+				<br/>
+				<Link to={PASSWORD_FORGET_PAGE} className="btn btn-info">Forgot Password ?</Link>
 			</div>
 		)
 	}

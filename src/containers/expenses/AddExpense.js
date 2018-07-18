@@ -12,8 +12,6 @@ class AddExpense extends Component {
 
 		return (
 			<div>
-				<h4>Add Expense</h4>
-				<hr/>
 				<ExpenseForm submitExpenseCallback={(expense) => this.submitExpenseCallback(expense)}/>
 			</div>
 		)

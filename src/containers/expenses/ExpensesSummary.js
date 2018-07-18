@@ -10,8 +10,7 @@ class ExpensesSummary extends Component {
 	render() {
 		return (
 			<div>
-				<h4>Expenses Summary</h4>
-				<h5>Viewing {this.props.expensesCount} totalling ${this.props.expensesTotal}</h5>
+				<h4>Viewing {this.props.expensesCount} totalling ${this.props.expensesTotal}</h4>
 				<Link to={ADD_EXPENSE_PAGE} className="btn btn-info">Add expense</Link>
 				<hr/>
 			</div>

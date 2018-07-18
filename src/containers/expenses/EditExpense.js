@@ -16,15 +16,12 @@ class EditExpense extends Component {
 	render() {
 		return (
 			<div>
-				<h4>Edit Expense</h4>
-				<hr/>
-				<button className="btn btn-danger" onClick={this.removeExpense}>Remove</button>
-				<br/>
-				<br/>
 				<ExpenseForm
 					expense={this.props.expense}
 					submitExpenseCallback={(expense) => this.submitExpenseCallback(expense)}
 				/>
+				<br/>
+				<button className="btn btn-danger" onClick={this.removeExpense}>Remove</button>
 			</div>
 		)
 	}

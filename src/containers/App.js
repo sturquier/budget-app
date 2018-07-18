@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { Router, Switch, Route, Redirect } from 'react-router-dom'
 
 import * as routes from '../constants/Routes'
 import ExpensesDashboard from '../components/expenses/ExpensesDashboard'
 import AddExpense from './expenses/AddExpense'
 import EditExpense from './expenses/EditExpense'
+import createBrowserHistory from '../helpers/history'
 
 class App extends Component {
 
   	render() {
 		return (
 	  		<div>
-	  			<HashRouter>
+	  			<Router history={createBrowserHistory}>
 	  				<Switch>
 	  					<Route exact path={routes.ROOT_PAGE} render={() => (
 	  						<Redirect to={routes.EXPENSES_DASHBOARD_PAGE}/>
@@ -20,7 +21,7 @@ class App extends Component {
 	  					<Route exact path={routes.ADD_EXPENSE_PAGE} component={AddExpense}/>
 	  					<Route exact path={routes.EDIT_EXPENSE_PAGE} component={EditExpense}/>
 	  				</Switch>
-	  			</HashRouter>
+	  			</Router>
 	  		</div>
 		)
   	}

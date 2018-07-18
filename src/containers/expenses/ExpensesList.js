@@ -23,14 +23,11 @@ class ExpensesList extends Component {
 	render() {
 		return (
 			<div>
-				<h4>Expenses List</h4>
-				<table className="table table-striped">
+				<table className="table table-hover">
 					<thead>
 						<tr>
 							<th>Title</th>
-							<th>Created At</th>
 							<th>Amount</th>
-							<th>Edit</th>
 						</tr>
 					</thead>
 					<tbody>

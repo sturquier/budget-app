@@ -3,8 +3,6 @@ import { Field, reduxForm } from 'redux-form'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
 
-import Header from '../layout/Header'
-
 const validate = values => {
 	const errors = {}
 	if (!values.title) {
@@ -55,7 +53,6 @@ class ExpenseForm extends Component {
 
 		return (
 			<div>
-				<Header/>
 				<form onSubmit={handleSubmit(this.submitExpense.bind(this))}>
 					<Field className="form-control" name="title" component={renderText} type="text" label="Title"/>
 					<Field className="form-control" name="amount" component={renderText} type="number" label="Amount"/>

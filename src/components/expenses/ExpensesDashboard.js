@@ -10,9 +10,11 @@ const ExpensesDashboard = () => {
 	return (
 		<div>
 			<Header/>
-			<ExpensesSummary/>
-			<ExpensesFilters/>
-			<ExpensesList/>
+			<div className="container">
+				<ExpensesSummary/>
+				<ExpensesFilters/>
+				<ExpensesList/>
+			</div>
 		</div>
 	)
 }

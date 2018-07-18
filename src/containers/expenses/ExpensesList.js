@@ -24,9 +24,9 @@ class ExpensesList extends Component {
 		return (
 			<div>
 				<table className="table table-hover">
-					<thead>
+					<thead className="thead-light">
 						<tr>
-							<th>Title</th>
+							<th>Expense</th>
 							<th>Amount</th>
 						</tr>
 					</thead>

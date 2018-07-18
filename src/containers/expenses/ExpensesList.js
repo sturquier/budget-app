@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux'
 import { getExpenses } from '../../actions/expenses'
 import ExpensesListItem from '../../components/expenses/ExpensesListItem'
 import { getVisibleExpenses } from '../../helpers/expenses'
-import withAuthorization from '../../components/session/withAuthorization'
 
 class ExpensesList extends Component {
 
@@ -50,8 +49,4 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({getExpenses}, dispatch)
 }
 
-const authCondition = (authUser) => !!authUser
-
-export default connect(mapStateToProps, mapDispatchToProps)
-(withAuthorization(authCondition)
-(ExpensesList))
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesList)

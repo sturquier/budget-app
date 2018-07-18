@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-import Header from '../layout/Header'
 import ExpensesSummary from '../../containers/expenses/ExpensesSummary'
 import ExpensesFilters from '../../containers/expenses/ExpensesFilters' 
 import ExpensesList from '../../containers/expenses/ExpensesList'
+import withAuthorization from '../session/withAuthorization' 
 
-const ExpensesDashboard = () => {
+class ExpensesDashboard extends Component {
 
-	return (
-		<div>
-			<Header/>
-			<div className="container">
+	render() {
+		return (
+			<div>
 				<ExpensesSummary/>
 				<ExpensesFilters/>
 				<ExpensesList/>
 			</div>
-		</div>
-	)
+		)
+	}
 }
 
-export default ExpensesDashboard
+const authCondition = (authUser) => !!authUser
+
+export default withAuthorization(authCondition)(ExpensesDashboard)

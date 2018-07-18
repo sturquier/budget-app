@@ -3,6 +3,8 @@ import { Field, reduxForm } from 'redux-form'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
 
+import withAuthorization from '../session/withAuthorization'
+
 const validate = values => {
 	const errors = {}
 	if (!values.title) {
@@ -85,7 +87,10 @@ class ExpenseForm extends Component {
 	}
 }
 
-export default reduxForm({
+const authCondition = (authUser) => !!authUser
+
+export default withAuthorization(authCondition)
+(reduxForm({
 	form: 'addExpenseForm',
 	validate
-})(ExpenseForm)
+})(ExpenseForm))

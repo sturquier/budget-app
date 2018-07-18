@@ -1,11 +1,10 @@
 import React from 'react'
+import { doSignOut } from '../../actions/auth'
 
 const SignOut = () => {
 
 	return (
-		<div>
-			<h4>SignOut Page</h4>
-		</div>
+		<button type="button" className="btn btn-dark" onClick={doSignOut}>Sign Out</button>		
 	)
 }
 

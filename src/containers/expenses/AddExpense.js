@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { addExpense } from '../../actions/expenses'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+
+import { addExpense } from '../../actions/expenses'
 import ExpenseForm from '../../components/expenses/ExpenseForm'
 import { EXPENSES_DASHBOARD_PAGE } from '../../constants/Routes'
 

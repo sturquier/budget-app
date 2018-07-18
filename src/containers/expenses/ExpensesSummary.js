@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getVisibleExpenses, getTotalExpenses } from '../../helpers/expenses'
 import { Link } from 'react-router-dom'
+
+import { getVisibleExpenses, getTotalExpenses } from '../../helpers/expenses'
+import { ADD_EXPENSE_PAGE } from '../../constants/Routes'
 
 class ExpensesSummary extends Component {
 
@@ -10,7 +12,7 @@ class ExpensesSummary extends Component {
 			<div>
 				<h4>Expenses Summary</h4>
 				<h5>Viewing {this.props.expensesCount} totalling ${this.props.expensesTotal}</h5>
-				<Link to="/expenses/new" className="btn btn-info">Add expense</Link>
+				<Link to={ADD_EXPENSE_PAGE} className="btn btn-info">Add expense</Link>
 				<hr/>
 			</div>
 		)

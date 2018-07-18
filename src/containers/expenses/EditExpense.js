@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
 import { editExpense, removeExpense } from '../../actions/expenses'
 import ExpenseForm from '../../components/expenses/ExpenseForm'
 import { EXPENSES_DASHBOARD_PAGE } from '../../constants/Routes'

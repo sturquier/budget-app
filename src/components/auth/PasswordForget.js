@@ -38,7 +38,7 @@ class PasswordForget extends Component {
 		const { handleSubmit, submitting } = this.props
 
 		return (
-			<div className="container">
+			<div>
 				<h4>Password Forget Page</h4>
 				<span className="text-danger">{this.state.apiError && this.state.apiError.message}</span>
 				<hr/>

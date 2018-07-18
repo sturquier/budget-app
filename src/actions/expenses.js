@@ -1,5 +1,5 @@
 import { GET_EXPENSES, ADD_EXPENSE, REMOVE_EXPENSE, EDIT_EXPENSE } from '../constants/ActionTypes'
-import db from '../firebase/config'
+import { db } from '../firebase/config'
 
 /**
  *	Fetch all expenses

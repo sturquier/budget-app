@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import { ROOT_PAGE, EXPENSES_DASHBOARD_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from '../../constants/Routes'
 import SignOut from '../auth/SignOut'
-import AuthUserContext from '../session/AuthUserContext'
 
 const AuthHeader = () =>
 	<Fragment>
@@ -32,23 +32,27 @@ const NonAuthHeader = () =>
 		</ul>
 	</Fragment>
 
-const Header = () => {
+const Header = ({ authUser }) => {
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 			<div className="container">
 				<Link className="navbar-brand" to={ROOT_PAGE}>Budget App</Link>
 				<div className="collapse navbar-collapse">
-					<AuthUserContext.Consumer>
-						{ authUser => authUser
-							? <AuthHeader/> 
-							: <NonAuthHeader/> 
-						}
-					</AuthUserContext.Consumer>
+					{ authUser
+						? <AuthHeader/> 
+						: <NonAuthHeader/> 
+					}
 				</div>
 			</div>
 		</nav>
 	)
 }
 
-export default Header
+const mapStateToProps = (state) => {
+	return {
+		authUser: state.session.authUser
+	}
+}
+
+export default connect(mapStateToProps)(Header)

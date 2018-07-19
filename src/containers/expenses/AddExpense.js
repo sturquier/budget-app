@@ -40,5 +40,5 @@ const authCondition = (authUser) => !!authUser
 
 export default compose(
 	withAuthorization(authCondition),
-	connect(null, mapDispatchToProps),
+	connect(mapStateToProps, mapDispatchToProps),
 )(AddExpense)

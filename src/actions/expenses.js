@@ -5,8 +5,10 @@ import { db } from '../firebase/config'
  *	Fetch all expenses
  */
 export function getExpenses() {
-	return function(dispatch) {
-		return db.ref('expenses')
+	return function(dispatch, getState) {
+		const uid = getState().session.authUser.uid
+
+		return db.ref(`users/${uid}/expenses`)
 			.once('value')
 			.then((snapshot) => {
 				const expenses = []
@@ -30,8 +32,10 @@ export function getExpenses() {
  *	Add a single expense
  */
 export function addExpense(expense) {
-	return function(dispatch) {
-		return db.ref('expenses')
+	return function(dispatch, getState) {
+		const uid = getState().session.authUser.uid
+
+		return db.ref(`users/${uid}/expenses`)
 			.push(expense)
 			.then((reference) => {
 				dispatch({
@@ -49,8 +53,10 @@ export function addExpense(expense) {
  *	Remove a single expense
  */
 export function removeExpense(id) {
-	return function(dispatch) {
-		return db.ref(`expenses/${id}`)
+	return function(dispatch, getState) {
+		const uid = getState().session.authUser.uid
+
+		return db.ref(`users/${uid}/expenses/${id}`)
 			.remove()
 			.then(() => {
 				dispatch({
@@ -65,8 +71,10 @@ export function removeExpense(id) {
  *	Edit a single expense
  */
 export function editExpense(id, updates) {
-	return function(dispatch) {
-		return db.ref(`expenses/${id}`)
+	return function(dispatch, getState) {
+		const uid = getState().session.authUser.uid
+
+		return db.ref(`users/${uid}/expenses/${id}`)
 			.update(updates)
 			.then(() => {
 				dispatch({

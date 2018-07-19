@@ -5,7 +5,7 @@ import { db } from '../firebase/config'
  *	Fetch all expenses
  */
 export function getExpenses() {
-	return function(dispatch, getState) {
+	return function(dispatch) {
 		return db.ref('expenses')
 			.once('value')
 			.then((snapshot) => {
@@ -30,7 +30,7 @@ export function getExpenses() {
  *	Add a single expense
  */
 export function addExpense(expense) {
-	return function(dispatch, getState) {
+	return function(dispatch) {
 		return db.ref('expenses')
 			.push(expense)
 			.then((reference) => {
@@ -49,7 +49,7 @@ export function addExpense(expense) {
  *	Remove a single expense
  */
 export function removeExpense(id) {
-	return function(dispatch, getState) {
+	return function(dispatch) {
 		return db.ref(`expenses/${id}`)
 			.remove()
 			.then(() => {
@@ -65,7 +65,7 @@ export function removeExpense(id) {
  *	Edit a single expense
  */
 export function editExpense(id, updates) {
-	return function(dispatch, getState) {
+	return function(dispatch) {
 		return db.ref(`expenses/${id}`)
 			.update(updates)
 			.then(() => {

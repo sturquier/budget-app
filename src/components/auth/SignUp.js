@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 import { doCreateUserWithEmailAndPassword } from '../../actions/auth'
+import { doCreateUser } from '../../actions/db'
 import { EXPENSES_DASHBOARD_PAGE } from '../../constants/Routes'
 
 const validate = values => {
@@ -66,8 +67,11 @@ class SignUp extends Component {
 
 	handleSignUp(fields) {
 		doCreateUserWithEmailAndPassword(fields.email, fields.passwordOne)
-			.then(() => {
-				this.props.history.push(EXPENSES_DASHBOARD_PAGE)
+			.then(authUser => {
+				doCreateUser(authUser.user.uid, fields.username, fields.email)
+					.then(() => {
+						this.props.history.push(EXPENSES_DASHBOARD_PAGE)
+					})
 			})
 			.catch(err => {
 				this.setState({

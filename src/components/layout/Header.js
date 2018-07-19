@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { ROOT_PAGE, EXPENSES_DASHBOARD_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE } from '../../constants/Routes'
+import { ROOT_PAGE, EXPENSES_DASHBOARD_PAGE, SIGN_IN_PAGE, SIGN_UP_PAGE, ACCOUNT_PAGE } from '../../constants/Routes'
 import SignOut from '../auth/SignOut'
 
 const AuthHeader = () =>
@@ -12,7 +12,7 @@ const AuthHeader = () =>
 				<Link className="nav-link" to={EXPENSES_DASHBOARD_PAGE}>Expenses</Link>
 			</li>
 			<li className="nav-item">
-				<Link className="nav-link" to="">TODO ACCOUNT</Link>
+				<Link className="nav-link" to={ACCOUNT_PAGE}>Account</Link>
 			</li>
 		</ul>
 		<ul className="navbar-nav ml-auto">

@@ -13,6 +13,7 @@ import EditExpense from './expenses/EditExpense'
 import SignUp from '../components/auth/SignUp'
 import SignIn from '../components/auth/SignIn'
 import PasswordForget from '../components/auth/PasswordForget'
+import Account from '../components/user/Account'
 
 class App extends Component {
 
@@ -30,6 +31,7 @@ class App extends Component {
 	  							<Route exact path={routes.SIGN_UP_PAGE} component={SignUp}/>
 	  							<Route exact path={routes.SIGN_IN_PAGE} component={SignIn}/>
 		  						<Route exact path={routes.PASSWORD_FORGET_PAGE} component={PasswordForget}/>
+		  						<Route exact path={routes.ACCOUNT_PAGE} component={Account}/>
 		  					</Switch>
 	  					</div>
 	  				</div>

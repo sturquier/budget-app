@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { compose } from 'recompose'
 
 import { editExpense, removeExpense } from '../../actions/expenses'
 import ExpenseForm from '../../components/expenses/ExpenseForm'
 import { EXPENSES_DASHBOARD_PAGE } from '../../constants/Routes'
+import withAuthorization from '../../components/session/withAuthorization'
 
 class EditExpense extends Component {
 
 	constructor(props) {
 		super(props)
+
 		this.removeExpense = this.removeExpense.bind(this)
 	}
 
@@ -39,7 +42,8 @@ class EditExpense extends Component {
 
 const mapStateToProps = (state, props) => {
 	return {
-		expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+		expense: state.expenses.find((expense) => expense.id === props.match.params.id),
+		authUser: state.session.authUser
 	}
 }
 
@@ -47,4 +51,9 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({editExpense, removeExpense}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditExpense)
+const authCondition = (authUser) => !!authUser
+
+export default compose(
+	withAuthorization(authCondition),
+	connect(mapStateToProps, mapDispatchToProps),
+)(EditExpense)

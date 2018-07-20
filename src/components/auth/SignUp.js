@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 import { doCreateUserWithEmailAndPassword } from '../../actions/auth'
-import { doCreateUser } from '../../actions/db'
+import { doCreateUser } from '../../actions/user'
 import { EXPENSES_DASHBOARD_PAGE } from '../../constants/Routes'
 
 const validate = values => {

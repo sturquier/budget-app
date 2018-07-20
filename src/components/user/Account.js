@@ -1,27 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
+import { bindActionCreators } from 'redux'
 
 import withAuthorization from '../session/withAuthorization'
+import { getCurrentUser } from '../../actions/user'
 
-const Account = ({ authUser }) => {
+class Account extends Component {
 
-	return (
-		<div>
-			<h4>Account : {authUser.email}</h4>
-		</div>
-	)
+	componentWillMount() {
+		this.props.getCurrentUser()
+	}
+
+	render() {
+		return (
+			<div>
+				<h4>Account</h4>
+				<hr/>
+				<h5>{this.props.currentUser.email}</h5>
+				<h5>{this.props.currentUser.username}</h5>
+			</div>
+		)
+	}
 }
 
 const mapStateToProps = (state) => {
 	return {
-		authUser: state.session.authUser
+		authUser: state.session.authUser,
+		currentUser: state.user
 	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({getCurrentUser}, dispatch)
 }
 
 const authCondition = (authUser) => !!authUser
 
 export default compose(
 	withAuthorization(authCondition),
-	connect(mapStateToProps),
+	connect(mapStateToProps, mapDispatchToProps),
 )(Account)

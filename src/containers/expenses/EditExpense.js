@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { compose } from 'recompose'
@@ -18,14 +18,14 @@ class EditExpense extends Component {
 
 	render() {
 		return (
-			<div>
+			<Fragment>
 				<ExpenseForm
 					expense={this.props.expense}
 					submitExpenseCallback={(expense) => this.submitExpenseCallback(expense)}
 				/>
 				<br/>
-				<button className="btn btn-danger" onClick={this.removeExpense}>Remove</button>
-			</div>
+				<button className="btn btn-danger" onClick={this.removeExpense}>Remove expense</button>
+			</Fragment>
 		)
 	}
 

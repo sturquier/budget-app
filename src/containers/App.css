@@ -1,0 +1,10 @@
+/* NAVBAR */
+
+.navbar {
+	margin-bottom: 20px
+}
+
+/* EXPENSES LIST */
+.expenses-table-body:hover {
+	cursor: pointer
+}

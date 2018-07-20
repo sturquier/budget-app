@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { withAlert } from 'react-alert'
 
@@ -38,7 +38,7 @@ class PasswordForget extends Component {
 		const { handleSubmit, submitting } = this.props
 
 		return (
-			<div>
+			<Fragment>
 				<h4>Password Forget Page</h4>
 				<span className="text-danger">{this.state.apiError && this.state.apiError.message}</span>
 				<hr/>
@@ -46,7 +46,7 @@ class PasswordForget extends Component {
 					<Field className="form-control" name="email" component={renderText} type="email" label="Email"/>
 					<button className="btn btn-info" disabled={submitting}>Reset Password</button>
 				</form>
-			</div>
+			</Fragment>
 		)
 	}
 

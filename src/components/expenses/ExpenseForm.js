@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
@@ -52,7 +52,7 @@ class ExpenseForm extends Component {
 		const { handleSubmit, submitting } = this.props
 
 		return (
-			<div>
+			<Fragment>
 				<form onSubmit={handleSubmit(this.submitExpense.bind(this))}>
 					<Field className="form-control" name="title" component={renderText} type="text" label="Title"/>
 					<Field className="form-control" name="amount" component={renderText} type="number" label="Amount"/>
@@ -69,7 +69,7 @@ class ExpenseForm extends Component {
 					</div>
 					<button type="submit" className="btn btn-success" disabled={submitting}>Save expense</button>
 				</form>
-			</div>
+			</Fragment>
 		)
 	}
 

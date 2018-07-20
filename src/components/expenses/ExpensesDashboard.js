@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
 
@@ -10,11 +10,11 @@ import withAuthorization from '../session/withAuthorization'
 const ExpensesDashboard = ({ authUser }) => {
 
 	return (
-		<div>
+		<Fragment>
 			<ExpensesSummary/>
 			<ExpensesFilters/>
 			<ExpensesList/>
-		</div>
+		</Fragment>
 	)
 }
 

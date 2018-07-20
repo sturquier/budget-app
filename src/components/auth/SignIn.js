@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { Link } from 'react-router-dom'
 
@@ -41,7 +41,7 @@ class SignIn extends Component {
 		const { handleSubmit, submitting } = this.props
 
 		return (
-			<div>
+			<Fragment>
 				<h4>Sign In Page</h4>
 				<span className="text-danger">{this.state.apiError && this.state.apiError.message}</span>
 				<hr/>
@@ -52,7 +52,7 @@ class SignIn extends Component {
 				</form>
 				<br/>
 				<Link to={PASSWORD_FORGET_PAGE} className="btn btn-info">Forgot Password ?</Link>
-			</div>
+			</Fragment>
 		)
 	}
 

@@ -30,7 +30,7 @@ class ExpensesList extends Component {
 							<th>Amount</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody className="expenses-table-body">
 						{this.renderExpenses()}
 					</tbody>
 				</table>

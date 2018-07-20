@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { bindActionCreators } from 'redux'
@@ -14,12 +14,12 @@ class Account extends Component {
 
 	render() {
 		return (
-			<div>
+			<Fragment>
 				<h4>Account</h4>
 				<hr/>
 				<h5>{this.props.currentUser.email}</h5>
 				<h5>{this.props.currentUser.username}</h5>
-			</div>
+			</Fragment>
 		)
 	}
 }

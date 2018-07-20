@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Router, Switch, Route } from 'react-router-dom'
 
+import './App.css'
 import * as routes from '../constants/Routes'
 import createBrowserHistory from '../helpers/history'
 import withAuthentication from '../components/session/withAuthentication'
@@ -20,7 +21,7 @@ class App extends Component {
   	render() {
 		return (
 	  			<Router history={createBrowserHistory}>
-	  				<div>
+	  				<Fragment>
 	  					<Header/>
 	  					<div className="container">
 		  					<Switch>
@@ -34,7 +35,7 @@ class App extends Component {
 		  						<Route exact path={routes.ACCOUNT_PAGE} component={Account}/>
 		  					</Switch>
 	  					</div>
-	  				</div>
+	  				</Fragment>
 	  			</Router>	
 		)
   	}

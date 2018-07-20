@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 import { doCreateUserWithEmailAndPassword } from '../../actions/auth'
@@ -50,7 +50,7 @@ class SignUp extends Component {
 		const { handleSubmit, submitting } = this.props
 
 		return (
-			<div>
+			<Fragment>
 				<h4>Sign Up Page</h4>
 				<span className="text-danger">{this.state.apiError && this.state.apiError.message}</span>
 				<hr/>
@@ -61,7 +61,7 @@ class SignUp extends Component {
 					<Field className="form-control" name="passwordTwo" component={renderText} type="password" label="Repeat Password"/>
 					<button className="btn btn-success" disabled={submitting}>Sign Up</button>
 				</form>
-			</div>
+			</Fragment>
 		)
 	}
 
